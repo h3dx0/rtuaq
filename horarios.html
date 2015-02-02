@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+   Aplicacion de rutas para la uaq
+ -->
+ <html>
+ <head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, arget-densitydpi=device-dpi" />
+
+  <!-- <link rel="stylesheet" href="css/jquery_theme/themes/rtuaq.min.css" /> -->
+  <link rel="stylesheet" href="css/jquery_theme/themes/uaq_azul.min.css" />
+  <link rel="stylesheet" href="css/jquery_theme/themes/jquery.mobile.structure-1.4.0.min.css" />
+  <link rel="stylesheet" href="css/jquery_theme/themes/jquery.mobile.icons.min.css" />
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/jquery.mobile-1.4.0.js"></script>      
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <!-- // <script src="js/webservice.js"></script>  -->
+  // <script src="js/main.js"></script> 
+  <!-- // <script src="js/main2.js"></script>  -->
+  <style>
+  #map-canvas {
+    height: 600px;
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+    float: left;
+    padding: 0px;           
+  }
+
+  </style>
+  <title>Red de transporte de la UAQ</title>
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="header">
+        <img  style="margin-left:20px"src="img/logo.png" width="50px"/>
+      <h1 style="float:right;text-align:left;margin-right:124px!important">RtUAQ</h1>
+      
+    </div>
+    <div role="main" class="ui-content">
+      <h3>Bienvenidos a RTUAQ</h3>
+          <div data-role="tabs">
+
+        <ul data-role="listview" data-inset="true" class="tablist-left">
+          <li><a href="consultar.html" data-ajax="false">Consultar ruta</a></li>
+          <li><a href="localizar.html" data-ajax="false">Localizar camión</a></li>
+          <li><a href="horarios.html" data-ajax="false">Horario</a></li>
+        </ul>
+
+
+  </div>
+  </div>
+
+
+
+<div data-role="footer">
+  <h4>Copyright © 2014 Todos los Derechos Reservados. | Este Sitio se Realizó por Universitarios para Universitarios <img width="40px"src="img/100uaq.png"/></h4>
+</div>
+</div>
+
+</body>
+</html>
