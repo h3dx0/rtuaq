@@ -8,9 +8,9 @@ $(document).ready(function(){
 	
 	//var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
 	var serviceURL = "http://localhost/rtuaq/web/servicio/";
-
+	$('#map-canvas').hide();
 	function initialize() {
-		alert('entro');
+		$('#map-canvas').show();
 		paintMap(20.592664, -100.413478,18);				
 	}
 	timer = $.timer(function() {
@@ -162,6 +162,6 @@ $(document).ready(function(){
 			title:descripcion,					
 		});		
 	}
-   //google.maps.event.addListener(document.getElementById('consultar_btn'), 'click', initialize);
+	google.maps.event.addDomListener(document.getElementById('selRutas-button'), 'click', initialize);
 	//google.maps.event.addDomListener(window, 'load', initialize);
 })
