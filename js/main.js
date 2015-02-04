@@ -6,111 +6,112 @@ $(document).ready(function(){
 	var timer;
 	var markers=[];
 	
-	var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
-	 //var serviceURL = "http://localhost/rtuaq/web/servicio/";
-	 
-	 function initialize() {
-	 	paintMap(20.592664, -100.413478,18);				
-	 }
-	 timer = $.timer(function() {
+	//var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
+	var serviceURL = "http://localhost/rtuaq/web/servicio/";
 
-	 	$.getJSON(serviceURL + 'getCamionPos.php?ruta='+valor, function(data) {		
-	 		datos = data.items[0];
-	 		LocationData = data.paradas;
-	 		paintMap(datos.lt,datos.ln,15);
+	function initialize() {
+		alert('entro');
+		paintMap(20.592664, -100.413478,18);				
+	}
+	timer = $.timer(function() {
+
+		$.getJSON(serviceURL + 'getCamionPos.php?ruta='+valor, function(data) {		
+			datos = data.items[0];
+			LocationData = data.paradas;
+			paintMap(datos.lt,datos.ln,15);
 	 		//pintarParadas(LocationData);
 	 		crearMarcador(datos.lt,datos.ln,'Posicion actual del camion');
 	 	});
 
-	 });	
-	 
-	 $('#horario_btn').click(function(){
-	 	$('#map-canvas').hide();
-	 })
+	});	
 
-	 $('select#selRutas').on('change',function(){
+	$('#horario_btn').click(function(){
+		$('#map-canvas').hide();
+	})
 
-	 	ubicar = false;
-	 	$('#map-canvas').show();
+	$('select#selRutas').on('change',function(){
 
-	 	valor = $(this).val();
-	 	
-	 	$.getJSON(serviceURL + 'getRutaFija.php?ruta='+valor, function(data) {		
-	 		datos = data.items[0];
-	 		LocationData = data.paradas;	 		
-	 		origen = new google.maps.LatLng(datos.lt, datos.ln);
-	 		destino = new google.maps.LatLng(20.592664, -100.413478,16);
-	 		calcRoute(origen,destino);
-	 		console.log()
-	 		if (LocationData != null) {
-	 			pintarParadas(LocationData);
-	 		} else{
-	 			clearMarkers();
-	 		};
-	 		
-	 	});
-	 	timer.pause();
+		ubicar = false;
+		$('#map-canvas').show();
 
-	 });
-	 $('#consultar_btn,#localizar_btn').click(function() {
-	 	clearMarkers(markers)
-	 });
-	 $('select#selCamion').on('change',function(){
-	 	ubicar = true;
-	 	
-	 	$('#map-canvas').show();
-	 	
-	 	ubicar = true;
-	 	valor = $(this).val();
-	 	$.getJSON(serviceURL + 'getCamionPos.php?ruta='+valor, function(data) {		
-	 		datos = data.items[0];
-	 		LocationData = data.paradas;
-	 		paintMap(datos.lt,datos.ln,15);
+		valor = $(this).val();
+
+		$.getJSON(serviceURL + 'getRutaFija.php?ruta='+valor, function(data) {		
+			datos = data.items[0];
+			LocationData = data.paradas;	 		
+			origen = new google.maps.LatLng(datos.lt, datos.ln);
+			destino = new google.maps.LatLng(20.592664, -100.413478,16);
+			calcRoute(origen,destino);
+			console.log()
+			if (LocationData != null) {
+				pintarParadas(LocationData);
+			} else{
+				clearMarkers();
+			};
+
+		});
+		timer.pause();
+
+	});
+	$('#consultar_btn,#localizar_btn').click(function() {
+		clearMarkers(markers)
+	});
+	$('select#selCamion').on('change',function(){
+		ubicar = true;
+
+		$('#map-canvas').show();
+
+		ubicar = true;
+		valor = $(this).val();
+		$.getJSON(serviceURL + 'getCamionPos.php?ruta='+valor, function(data) {		
+			datos = data.items[0];
+			LocationData = data.paradas;
+			paintMap(datos.lt,datos.ln,15);
 	 		//pintarParadas(LocationData);
 	 		crearMarcador(datos.lt,datos.ln,'Posicion actual del camion');
 	 	});
-	 	timer.play();
+		timer.play();
 
-	 });
-	 $('#horario_btn').click(function(){
-	 	ubicar = false;
-	 });
+	});
+	$('#horario_btn').click(function(){
+		ubicar = false;
+	});
 
-	 timer.set({ time : 10000});
-	 if (!ubicar) {
-	 	
-	 	timer.pause();
-	 }
-	 function clearMarkers() {
-	 	console.log(markers.length)
-	 	for (var i = 0; i < markers.length; i++) {
-	 		markers[i].setMap(null);
-	 	}
-	 }
+	timer.set({ time : 10000});
+	if (!ubicar) {
 
-	 function paintMap(latitud,longitud,zoom) {
+		timer.pause();
+	}
+	function clearMarkers() {
+		console.log(markers.length)
+		for (var i = 0; i < markers.length; i++) {
+			markers[i].setMap(null);
+		}
+	}
 
-	 	directionsDisplay = new google.maps.DirectionsRenderer();
-	 	var uaq = new google.maps.LatLng(latitud, longitud);
-	 	var mapOptions = {
-	 		zoom:zoom,			
-	 		streetViewControl: true,
-	 		center: uaq
-	 	}
-	 	var infowindow = new google.maps.InfoWindow();
-	 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	function paintMap(latitud,longitud,zoom) {
 
-	 	directionsDisplay.setMap(map);
-	 	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+		directionsDisplay = new google.maps.DirectionsRenderer();
+		var uaq = new google.maps.LatLng(latitud, longitud);
+		var mapOptions = {
+			zoom:zoom,			
+			streetViewControl: true,
+			center: uaq
+		}
+		var infowindow = new google.maps.InfoWindow();
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-	 }
+		directionsDisplay.setMap(map);
+		directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
-	 function calcRoute(start,end) {	
-	 	var waypts = [];
+	}
 
-	 	var request = {
-	 		origin:start,
-	 		destination:end,
+	function calcRoute(start,end) {	
+		var waypts = [];
+
+		var request = {
+			origin:start,
+			destination:end,
 			//waypoints: waypts,
 			optimizeWaypoints: true,
 			travelMode: google.maps.TravelMode.DRIVING
@@ -161,6 +162,6 @@ $(document).ready(function(){
 			title:descripcion,					
 		});		
 	}
-
-	google.maps.event.addDomListener(window, 'load', initialize);
+   //google.maps.event.addListener(document.getElementById('consultar_btn'), 'click', initialize);
+	//google.maps.event.addDomListener(window, 'load', initialize);
 })
