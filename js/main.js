@@ -37,6 +37,7 @@ $(document).ready(function(){
 		valor = $(this).val();
 
 		$.getJSON(serviceURL + 'getRutaFija.php?ruta='+valor, function(data) {		
+			alert('ejecutando'+serviceURL + 'getRutaFija.php?ruta='+valor);
 			datos = data.items[0];
 			LocationData = data.paradas;	 		
 			origen = new google.maps.LatLng(datos.lt, datos.ln);
