@@ -162,6 +162,7 @@ $(document).ready(function(){
 			title:descripcion,					
 		});		
 	}
-	google.maps.event.addDomListener(document.getElementById('selRutas-button'), 'click', initialize);
+	google.maps.event.addDomListener(document.getElementById('consultar_btn'), 'click', initialize);
+	google.maps.event.addDomListener(document.getElementById('localizar_btn'), 'click', initialize);
 	//google.maps.event.addDomListener(window, 'load', initialize);
 })
