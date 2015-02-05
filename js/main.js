@@ -6,8 +6,8 @@ $(document).ready(function(){
 	var timer;
 	var markers=[];
 	
-	//var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
-	var serviceURL = "http://localhost/rtuaq/web/servicio/";
+	var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
+	//var serviceURL = "http://localhost/rtuaq/web/servicio/";
 	$('#map-canvas').hide();
 	function initialize() {
 		$('#map-canvas').show();
