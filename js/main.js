@@ -6,8 +6,8 @@ $(document).ready(function(){
 	var timer;
 	var markers=[];
 	
-	var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
-	//var serviceURL = "http://localhost/rtuaq/web/servicio/";
+	//var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
+	var serviceURL = "http://localhost/rtuaq/web/servicio/";
 	$('#map-canvas').hide();
 	function initialize() {
 		$('#map-canvas').show();
@@ -37,7 +37,6 @@ $(document).ready(function(){
 		valor = $(this).val();
 
 		$.getJSON(serviceURL + 'getRutaFija.php?ruta='+valor, function(data) {		
-			alert('ejecutando'+serviceURL + 'getRutaFija.php?ruta='+valor);
 			datos = data.items[0];
 			LocationData = data.paradas;	 		
 			origen = new google.maps.LatLng(datos.lt, datos.ln);
