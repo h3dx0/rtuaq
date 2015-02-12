@@ -13,7 +13,9 @@ $(document).ready(function(){
 		};
 		$('#imgContainer').show();
 		$('#mapaImg').attr('src','img/'+name+'.png');
-		$('select#selRutas option[value=inicio]').prop('selected','selected');
+		
+		$('select#selCamion option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
+		$('select#selCamion').selectmenu("refresh", true);
 	});
 
 
@@ -30,9 +32,15 @@ $(document).ready(function(){
 		
 		$('#imgContainer').show();
 		$('#mapaImg').attr('src','img/'+name+'.png');
-		$('select#selCamion option[value=inicio]').prop('selected','selected');
+		
+		$('select#selRutas option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
+		$('select#selRutas').selectmenu("refresh", true);
 	});
 	$('#horario_btn').on('click',function(){
+		$('select#selCamion option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
+		$('select#selCamion').selectmenu("refresh", true);
+		$('select#selRutas option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
+		$('select#selRutas').selectmenu("refresh", true);
 		$('#horario').show();		
 		$('#imgContainer').hide();
 		
