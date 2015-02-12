@@ -16,7 +16,7 @@
   <script src="js/jquery.mobile-1.4.0.js"></script>        
   <script src="js/main2.js"></script> 
   <style>
- .texto{
+  .texto{
     padding: 10px;
     border: solid 1px #ccc ;
     background-color:#efefef;
@@ -47,34 +47,25 @@
     </div>
     <div role="main" class="ui-content">
       <h2>Bienvenidos a RedUAQ</h2>
-      <div data-role="tabs">
-
-        <ul data-role="listview" data-inset="true" class="tablist-left">
-          <li><a href="#consultar" id="consultar_btn" data-ajax="false">Consultar ruta</a></li>
-          <li><a href="#localizar" id="localizar_btn" data-ajax="false">Localizar camión</a></li>
-          <li><a id="horario_btn" href="#horario" data-ajax="false">Horario</a></li>
-        </ul>
-        <div id="consultar" class="ui-body-d tablist-content">
-         <h2>Consultar ruta</h2>
-         <select name="select-choice-a" id="selRutas" data-native-menu="false">
-          <option>Seleccione una ruta</option>
-          <option value="ruta1">Amazcala</option>         
-          <option value="ruta2">Aereopuerto</option>
-           <option value="ruta3">Juriquilla</option>
-          <option value="ruta4">CU</option>
-        </select>
-      </div>
-      <div id="localizar" class="ui-body-d tablist-content">
-       <h2>Localizar cami&oacute;n</h2>
+      <div id="localizar" class="ui-body-d tablist-content">      
        <select name="select-choice-b" id="selCamion" data-native-menu="false">
-
-        <option>Seleccione una ruta</option>
+       <option  value="inicio">Localizar camión</option>
         <option value="camion1">Amazcala</option>
         <option value="camion2">Aereopuerto</option>
         <option value="camion3">Juriquilla</option>        
         <option value="camion4">Aereopuerto2</option>
       </select>
     </div>
+    <div id="consultar" class="ui-body-d tablist-content">
+      <select name="select-choice-a" id="selRutas" data-native-menu="false">
+      <option value="inicio">Consultar rutas</option>
+      <option value="ruta1">Amazcala</option>         
+      <option value="ruta2">Aereopuerto</option>
+      <option value="ruta3">Juriquilla</option>
+      <option value="ruta4">CU</option>
+    </select>
+  </div>
+  <a href="#" id="horario_btn" data-role="button">Horario</a> 
     <div id="horario" class="ui-body-d tablist-content">  
       <div data-role="tabs" id="tabs">
         <div data-role="navbar">
@@ -170,9 +161,10 @@
   </div>
 </div>
 </div>
-</div>
+
 
 <div id="imgContainer">
+  <h3 id="msj"></h3>
   <img id="mapaImg" src="" width="97%" alt="mapa">
 </div>
 </div>
