@@ -15,9 +15,9 @@ $(document).ready(function(){
 
 
 
-        //var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
+        var serviceURL = "http://ingenieria.uaq.mx/rtuaq/servicio/";
 
-        var serviceURL = "http://localhost/rtuaq/web/servicio/";
+        //var serviceURL = "http://localhost/rtuaq/web/servicio/";
 
         $('#map-canvas').hide();
 
