@@ -9,13 +9,16 @@
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, arget-densitydpi=device-dpi" />
 
   <!-- <link rel="stylesheet" href="css/jquery_theme/themes/rtuaq.min.css" /> -->
-  <link rel="stylesheet" href="css/jquery_theme2/themes/morado-rtuaq.min.css" />
+<link rel="stylesheet" href="css/jquery_theme2/themes/morado-rtuaq.min.css" />
   <link rel="stylesheet" href="css/jquery_theme2/themes/jquery.mobile.structure-1.4.0.min.css" />
   <link rel="stylesheet" href="css/jquery_theme2/themes/jquery.mobile.icons.min.css" />
   <script src="js/jquery-1.10.2.min.js"></script>
-  <script src="js/jquery.mobile-1.4.0.js"></script>        
-  <script src="js/main2.js"></script> 
-  <style>
+  <script src="js/jquery.mobile-1.4.0.js"></script>      
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="js/main.js"></script> 
+  <script src="js/timer.js"></script> 
+
+<style>
   .texto{
     padding: 10px;
     border: solid 1px #ccc ;
@@ -29,11 +32,12 @@
     text-align: center;
     margin-right: 50%;
   }
-  #imgContainer{
-    border: solid 1px #ececec;
-    border-radius: 2px;
-    padding: 2px;
-    text-align: center;
+  #map-canvas {
+    height: 600px;
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+   float: left;
+    padding: 0px;           
   }
   </style>
   <title>Red de transporte de la UAQ</title>
@@ -50,19 +54,19 @@
       <div id="localizar" class="ui-body-d tablist-content">      
        <select name="select-choice-b" id="selCamion" data-native-menu="false">
        <option  value="inicio">Localizar camión</option>
-        <option value="camion1">Amazcala</option>
-        <option value="camion2">Aereopuerto</option>
-        <option value="camion3">Juriquilla</option>        
-        <option value="camion4">Aereopuerto2</option>
+        <option value="1">Amazcala</option>
+        <option value="2">Aereopuerto</option>
+        <option value="3">Juriquilla</option>        
+        <option value="4">Aereopuerto2</option>
       </select>
     </div>
     <div id="consultar" class="ui-body-d tablist-content">
       <select name="select-choice-a" id="selRutas" data-native-menu="false">
       <option value="inicio">Consultar rutas</option>
-      <option value="ruta1">Amazcala</option>         
-      <option value="ruta2">Aereopuerto</option>
-      <option value="ruta3">Juriquilla</option>
-      <option value="ruta4">CU</option>
+      <option value="1">Amazcala</option>         
+      <option value="2">Aereopuerto</option>
+      <option value="3">Juriquilla</option>
+      <option value="4">CU</option>
     </select>
   </div>
   <a href="#" id="horario_btn" data-role="button">Horario</a> 
@@ -163,10 +167,9 @@
 </div>
 
 
-<div id="imgContainer">
   <h3 id="msj"></h3>
-  <img id="mapaImg" src="" width="97%" alt="mapa">
-</div>
+  <div id="map-canvas"></div>
+
 </div>
 
 
