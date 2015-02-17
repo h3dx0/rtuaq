@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.uaq.rtuaq" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>RtUAQ</name>
+    <name>RedUAQ</name>
     <description>
        Aplicación para la red de transporte de la Universidad Autónoma de Querertaro
     </description>
@@ -48,12 +48,5 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" /> -->
    <!--  <access origin="http://127.0.0.1*" /> -->
-    <feature name="Geolocation">
-     <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
-    </feature>
-    <access origin="*.google.com"/>
-    <access origin="*.googleapis.com" />
-    <access origin="*.gstatic.com" />
-    <access origin="ingenieria.uaq.mx/*" />
-    <access origin="rtuaq.mx/*" />
+   
 </widget>
