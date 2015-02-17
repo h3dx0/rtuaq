@@ -16,6 +16,8 @@ $(document).ready(function(){
 		
 		$('select#selCamion option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
 		$('select#selCamion').selectmenu("refresh", true);
+		$('select#horario_select option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
+		$('select#horario_select').selectmenu("refresh", true);
 	});
 
 
@@ -35,14 +37,44 @@ $(document).ready(function(){
 		
 		$('select#selRutas option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
 		$('select#selRutas').selectmenu("refresh", true);
+		$('select#horario_select option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
+		$('select#horario_select').selectmenu("refresh", true);
 	});
 	$('#horario_btn').on('click',function(){
 		$('select#selCamion option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
 		$('select#selCamion').selectmenu("refresh", true);
 		$('select#selRutas option[value=inicio]').attr('selected',true).siblings('option').removeAttr('selected');
 		$('select#selRutas').selectmenu("refresh", true);
-		$('#horario').show();		
 		$('#imgContainer').hide();
 		
 	});
+
+	$('select#horario_select').on('change',function(){
+		$('#horario').show();
+		var valor = $(this).val();	
+
+		if (valor=="cua") {
+			$('#cua h2').html("Ruta CU a Aereopuerto");
+			$('#cua').show();
+			$('#cuj').hide();
+			$('#cub').hide();
+			console.log(valor);
+		} else if(valor == "cuj"){
+			$('#cuj h2').html("Ruta CU a Juriquilla");
+			$('#cua').hide();
+			$('#cuj').show();
+			$('#cub').hide();
+			console.log(valor);
+
+		}else{
+			$('#cub h2').html("Ruta CU a Bicentenario");
+			$('#cua').hide();
+			$('#cuj').hide();
+			$('#cub').show();
+			console.log(valor);
+
+		}					
+
+	});
+
 })
