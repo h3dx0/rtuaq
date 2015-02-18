@@ -8,10 +8,278 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, arget-densitydpi=device-dpi" />
 
+  <!-- <link rel="stylesheet" href="css/jquery_theme/themes/rtuaq.min.css" /> -->
+  <link rel="stylesheet" href="css/jquery_theme2/themes/morado-rtuaq.min.css" />
+  <link rel="stylesheet" href="css/jquery_theme2/themes/jquery.mobile.structure-1.4.0.min.css" />
+  <link rel="stylesheet" href="css/jquery_theme2/themes/jquery.mobile.icons.min.css" />
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/jquery.mobile-1.4.0.js"></script>        
+  <script src="js/main2.js"></script> 
+  <style>
+  .texto{
+    padding: 10px;
+    border: solid 1px #ccc ;
+    background-color:#efefef;
+    margin: 5px; 
+    border-radius: 3px;
+  }
+  .logo{    
+    float: right;
+    font-size: 1.5em;
+    text-align: center;
+    margin-right: 50%;
+  }
+  #imgContainer{
+    border: solid 1px #ececec;
+    border-radius: 2px;
+    padding: 2px;
+    text-align: center;
+  }
+  </style>
   <title>Red de transporte de la UAQ</title>
 </head>
 <body>
-  probando
+  <div data-role="page">
+    <div data-role="header">
+      <img  style="margin-left:43%"src="img/logo.png" width="50px"/>
+      <!-- <h1 style="float:right;text-align:left;margin-right:120px!important">RtUAQ</h1> -->
+      <!-- <p class="logo">RTUAQ</p> -->
+    </div>
+     
+    <div role="main" class="ui-content">
+      <h2>Bienvenidos a RedUAQ</h2>
+      <div id="localizar" class="ui-body-d tablist-content">      
+       <select name="select-choice-b" id="selCamion" data-native-menu="false">
+       <option  value="inicio">Localizar camión</option>
+        <option value="camion1">Amazcala</option>
+        <option value="camion2">Aereopuerto</option>
+        <option value="camion3">Juriquilla</option>        
+        <option value="camion4">Aereopuerto2</option>
+      </select>
+    </div>
+    <div id="consultar" class="ui-body-d tablist-content">
+      <select name="select-choice-a" id="selRutas" data-native-menu="false">
+      <option value="inicio">Consultar rutas</option>
+      <option value="ruta1">Amazcala</option>         
+      <option value="ruta2">Aereopuerto</option>
+      <option value="ruta3">Juriquilla</option>
+      <option value="ruta4">CU</option>
+    </select>
+  </div>
+      <div id="horario_btn" class="ui-body-d tablist-content">
+      <select name="select-choice-a" id="horario_select" data-native-menu="false">
+      <option value="inicio">Consultar Horarios</option>
+      <option value="cua">CU - Aereopuerto</option>         
+      <option value="cub">CU - Bicentenario</option>
+      <option value="cuj">CU - Juriquilla</option>
+      
+    </select>
+  </div>
+
+    <div id="horario" class="ui-body-d tablist-content">  
+          <div id="cua">
+          <h2></h2>
+          <table data-role="table" id="table-custom-2"  class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-popup-theme="a">
+
+            <thead>
+             <tr class="ui-bar-d">              
+              <th data-priority="1">Salida CU</th>
+              <th data-priority="3">LLegada A C.A</th>
+              <th data-priority="2"># Camiones</th>
+              <th data-priority="2"># Paradas</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>              
+              <td>6:30am</td>
+              <td>7:00am</td>
+              <td>4</td>
+              <td>1</td>
+
+            </tr>
+            <tr>              
+              <td>7:30am</td>
+              <td>8:00am</td>
+              <td>4</td>
+              <td>1</td>
+
+            </tr>
+            <tr>              
+              <td>8:30am</td>
+              <td>9:00am</td>
+              <td>4</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>10:00am</td>
+              <td>10:50am</td>
+              <td>1</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>12:00pm</td>
+              <td>12:50pm</td>
+              <td>3</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>13:00pm</td>
+              <td>13:50pm</td>
+              <td>1</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>14:00pm</td>
+              <td>14:50pm</td>
+              <td>3</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>15:00pm</td>
+              <td>15:50pm</td>
+              <td>1</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>16:00pm</td>
+              <td>16:50pm</td>
+              <td>2</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>17:00pm</td>
+              <td>17:50pm</td>
+              <td>1</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>18:00pm</td>
+              <td>18:50pm</td>
+              <td>2</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>19:00pm</td>
+              <td>19:50pm</td>
+              <td>1</td>
+              <td>3</td>
+
+            </tr>
+            <tr>              
+              <td>20:00pm</td>
+              <td>20:50pm</td>
+              <td>1</td>
+              <td>3</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="cub">
+        <h2></h2>
+        <table data-role="table" id="table-custom-2" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-popup-theme="a">
+
+          <thead>
+           <tr class="ui-bar-d">            
+            <th data-priority="1">Salida CU</th>
+            <th data-priority="4">#. Camiones</th>
+            <th data-priority="3">Salida de Bicentenario</th>
+            <th data-priority="4">#. Camiones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>           
+            <td>6:30am</td>
+             <td>1</td>
+            <td>14:05</td>
+             <td>1</td>
+          </tr>          
+        </tbody>
+      </table>
+    </div>
+    <div id="cuj">
+      <h2></h2>
+      <table data-role="table" id="table-custom-2" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b"  data-column-popup-theme="a">
+
+        <thead>
+         <tr class="ui-bar-d">            
+            <th data-priority="1">Salida CU</th>
+            <th data-priority="4">#. Camiones</th>
+            <th data-priority="3">Salida de Juriquilla</th>
+            <th data-priority="4">#. Camiones</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>         
+          <td>6:30am</td>
+           <td>3</td>
+          <td>14:20</td>
+          <td>1</td>
+        </tr>
+        <tr>          
+          <td>7:30am</td>
+          <td>3</td>
+          <td>15:00</td>
+          <td>1</td>
+        </tr>
+
+        <tr>          
+          <td>8:30am</td>
+          <td>3</td>
+          <td>14:20</td>
+          <td>1</td>
+        </tr>
+
+        <tr>          
+          <td></td>
+          <td></td>
+          <td>17:30</td>
+          <td>1</td>
+        </tr>
+
+        <tr>          
+          <td></td>
+          <td></td>
+          <td>18:30</td>
+          <td>1</td>
+        </tr>
+
+        <tr>          
+          <td></td>
+          <td></td>
+          <td>19:00</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<div id="imgContainer">
+  <h3 id="msj"></h3>
+  <img id="mapaImg" src="" width="97%" alt="mapa">
+</div>
+</div>
+
+
+
+<div class="texto">“RT Red de Transporte Universitario” es una aplicación para teléfonos inteligentes que con un par de “clicks” permitirá al usuario identificar las rutas hacia su respectivo campus, los horarios de salida y paradas, con la intención de que alumnos y profesores planeen sus tiempos de traslado a sus unidades académicas.  </div>
+<div data-role="footer">
+  <h4>Copyright © 2014 Todos los Derechos Reservados. | Este Sitio se Realizó por Universitarios para Universitarios <img width="40px"src="img/100uaq.png"/></h4>
+</div>
+</div>
 
 </body>
 </html>
